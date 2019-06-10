@@ -35,8 +35,8 @@ function draw(){
         const noiseSeed = createVector(ball.pos.x/dims.x*increment.x+offSetStart.x, ball.pos.y/dims.y*increment.y+offSetStart.y, ball.pos.z/dims.z*increment.z+offSetStart.z);
         const noiseAngleRaw = noise(noiseSeed.x, noiseSeed.y, noiseSeed.z);
         const noiseAngle2Raw = noise(noiseSeed.x*PI+100000, noiseSeed.y*PI + 1000000, noiseSeed.z*PI + 10000000);
-        const noiseAngle = map(noiseAngleRaw, 0, 1, -8*PI, 8*PI);
-        const noiseAngle2 = map(noiseAngle2Raw, 0, 1, -8*PI, 8*PI);
+        const noiseAngle = map(noiseAngleRaw, 0, 1, -4*PI, 4*PI);
+        const noiseAngle2 = map(noiseAngle2Raw, 0, 1, -4*PI, 4*PI);
         const noiseVector = p5.Vector.fromAngles(noiseAngle, noiseAngle2);
         ball.v = noiseVector.mult(maxSpeed);
         ball.move();
