@@ -6,9 +6,9 @@ let increment;
 let dims;
 let time = 0;
 let balls;
-let numBalls = 200;
+let numBalls = 5000;
 let maxSpeed = 1;
-let radius = 100;
+let radius = 400;
 var backgroundImage;
 
 function setup(){
