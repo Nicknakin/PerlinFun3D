@@ -14,7 +14,7 @@ var backgroundImage;
 function setup(){
     var canvas = createCanvas(windowWidth*0.95, windowHeight*0.95, WEBGL);
     offSet = createVector(0,0,0);
-    offSetStart = createVector(100,100,100);
+    offSetStart = createVector(random(radius,radius*2), random(radius, radius*2), random(radius, radius*2));
     increment = createVector(0.001, 0.001, 0.001);
     dims = createVector(1,1,1);
 
@@ -34,7 +34,7 @@ function draw(){
     pointLight(255,255,255,0,0,0);
     stroke(64,64,64,16);
     noFill();
-    // ellipsoid(radius, radius, radius);
+    ellipsoid(radius, radius, radius);
     balls.forEach((ball) => {
         ball.draw();
     });
