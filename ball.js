@@ -33,7 +33,8 @@ class Ball{
 }
 
 function randomBall(){
-    return new Ball(random(width), random(height), random(floor(sqrt(height*height+width*width))), randomColor());
+    const tempVec = p5.Vector.fromAngles(random(2*PI), random(2*PI)).mult(random(radius));
+    return new Ball(tempVec.x, tempVec.y, tempVec.z, randomColor());
 }
 
 function randomColor(){

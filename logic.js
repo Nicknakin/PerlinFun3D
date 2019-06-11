@@ -23,8 +23,6 @@ function setup(){
     noiseDetail(4);
     background(0);
 
-    var interv = setInterval(moveBalls, 1000/60);
-
     p5.disableFriendlyErrors = true
 }
 
@@ -35,6 +33,7 @@ function draw(){
     stroke(64,64,64,16);
     noFill();
     ellipsoid(radius, radius, radius);
+    moveBalls();
     balls.forEach((ball) => {
         ball.draw();
     });
@@ -51,8 +50,10 @@ function moveBalls(){
         ball.v = noiseVector.mult(maxSpeed);
         ball.move();
         if(ball.pos.magSq() >= radius*radius){
-            ball.pos = p5.Vector.fromAngles(random(2*PI), random(2*PI)).mult(random(radius));
-            ball.v = ball.v.mult(0);
-        }
+            //ball.pos = p5.Vector.fromAngles(random(2*PI), random(2*PI)).mult(random(radius));
+            //ball.v = ball.v.mult(0);
+            ball.antiBall = !ball.antiBall;
+	    ball.c = createVector(255,255,255).sub(ball.c);
+	}
     });
 }
